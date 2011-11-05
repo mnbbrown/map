@@ -136,7 +136,7 @@ def finDownload(code = None, reportID = None):
 			result = cursor.fetchone()
 			try: accountID
 			except NameError: accountID = '0'
-			print account[0][0]
+			print accountName
 			if int(accountID) > 100 and account[0][0] == "Inventories": 
 				result = ['104']
 			if int(accountID) > 200 and account[0][0] == "Inventories": 
@@ -151,8 +151,9 @@ def finDownload(code = None, reportID = None):
 					balanceDate = lines[0][c+1]
 					balanceValue = float(balance.replace(",",""))
 					query = "INSERT INTO balances (balanceID, date, accountID, reportID, amount, stockCode) VALUES (NULL, \'%s\', \'%s\', \'%s\', %s, \'%s\')" %  (balanceDate, accountID, reportID, balanceValue, code)
-					#cursor.execute(query)
-					#conn.commit()
+					print query
+					cursor.execute(query)
+					conn.commit()
 	cursor.close()
 	conn.close()
 		
@@ -165,7 +166,7 @@ def finDownload(code = None, reportID = None):
 		dataFile.writerow(row)
 	
 session = initHTTP()
-finDownload("NHC","bs")
+finDownload("DTL","bs")
 
 
 
