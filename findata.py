@@ -4,7 +4,7 @@
 findata.py
 
 Created by Matthew Brown on 2011-10-11.
-Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+Copyright (c) 2011 Matthew Brown. All rights reserved.
 """
 
 import sys
