@@ -31,7 +31,7 @@ def initHTTP():
 		if r.status_code != 200:
 			session.cookies.clear()
 			print "Not Authenticated: " + str(r.status_code) + " Attempting to Authenticate..."
-			session = authenticate("***REMOVED***", "***REMOVED***", session)
+			session = authenticate(os.environ['USERNAME'], os.environ['PASSWORD'], session)
 			session.cookies.save(cookiefile, True, True)
 		
 	return session
